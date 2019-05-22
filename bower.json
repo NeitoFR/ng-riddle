@@ -1,0 +1,22 @@
+{
+  "name": "kube-tea-api",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Willem HOUM <212682057@ge.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/NeitoFR/kube_tea_ui",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "px-flexbox-design": "^1.0.3",
+    "px-starter-kit-design": "^1.0.3",
+    "px-layout-design": "^1.0.2"
+  }
+}

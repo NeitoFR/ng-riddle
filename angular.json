@@ -27,9 +27,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/toastr/build/toastr.min.css"
             ],
-            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["./bower_components"]
+            },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/toastr/build/toastr.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
