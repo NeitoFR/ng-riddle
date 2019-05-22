@@ -32,4 +32,10 @@ export class AppComponent implements OnInit  {
     this.gameStarted = false;
     this.currentGame = [];
   }
+
+  endGame(evt) {
+    console.log('Game has ended');
+    this.gameStarted = false;
+    this.currentGame = [];
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ILevel } from 'src/app/interfaces/level.model';
 import { IAnswer } from 'src/app/interfaces/answer.model';
 
@@ -10,12 +10,19 @@ import { IAnswer } from 'src/app/interfaces/answer.model';
 export class GameContainerComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   _currentGame: ILevel[];
-// tslint:disable-next-line: variable-name
+  // tslint:disable-next-line: variable-name
   _goodAnswer: string;
-// tslint:disable-next-line: variable-name
+  // tslint:disable-next-line: variable-name
   _answers: IAnswer[];
   // _currentLevel:
   currentLevel: ILevel;
+
+  score: any;
+
+  // tslint:disable-next-line: variable-name
+  _i: number;
+
+  @Output() endGameEvent = new EventEmitter();
 
   @Input()
   set currentGame(currentGame: ILevel[]) {
@@ -26,15 +33,33 @@ export class GameContainerComponent implements OnInit {
 
   _initGame() {
     console.log('Initializing Game, first level is : ', this._currentGame[0]);
-
-    this.currentLevel = this._currentGame[0];
+    this._i = 0;
+    this.currentLevel = this._currentGame[this._i];
     this._goodAnswer = this.currentLevel.good_answer;
     this._answers = this.currentLevel.answers;
   }
   answerSelected(answer: IAnswer) {
     console.log('From game container, answer selected : ', answer.solution);
-
+    // Check Score TODO
+    this._setNextLevel(answer);
   }
+
+  _setNextLevel(answer: IAnswer) {
+    if (this._i !== (this._currentGame.length - 1)) {
+      this._i++;
+      this.currentLevel = this._currentGame[this._i];
+      this._goodAnswer = this.currentLevel.good_answer;
+      this._answers = this.currentLevel.answers;
+    } else {
+      this._endGame();
+    }
+  }
+
+  _endGame() {
+    console.log('Game has ended');
+    this.endGameEvent.emit();
+  }
+
   constructor() { }
 
   ngOnInit() {

@@ -31,5 +31,5 @@
       </button>
     </form>
   </mat-card>
-  <app-game-container [currentGame]="currentGame" class="flex__item u-1/1" *ngIf="gameStarted"></app-game-container>
+  <app-game-container [currentGame]="currentGame" class="flex__item u-1/1" *ngIf="gameStarted" (endGameEvent)="endGame($event)"></app-game-container>
 </div>
