@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="flex flex--row">
   <span class="flex__item flex__item">Saying QUIZ</span>
   <span>
-    <button mat-raised-button color="basic" class="flex__item--bottom u-m">
+    <button mat-raised-button color="basic" class="flex__item--bottom u-m" (click)="stopGame.emit()" [disabled]="!gameStarted">
       Start new Game
     </button>
   </span>

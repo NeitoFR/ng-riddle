@@ -1,6 +1,7 @@
 <div class="flex flex--col wrapper">
-  <app-toolbar class="flex__item"></app-toolbar>
-  <mat-card class="flex__item flex flex--col">
+  <app-toolbar class="flex__item" (stopGame)="stopGame($event)" [gameStarted]="gameStarted"></app-toolbar>
+
+  <mat-card class="flex__item flex flex--col" *ngIf="!gameStarted">
     <form
       #startGameForm="ngForm"
       class="flex__item flex flex--col"
@@ -24,10 +25,11 @@
         color="primary"
         class="btn flex__item--middle u-1/6"
         type="submit"
-        [disabled]="startGameForm.invalid"
+        [disabled]="startGameForm.invalid || gameStarted"
       >
         Launch new Game
       </button>
     </form>
   </mat-card>
+  <app-game-container [currentGame]="currentGame" class="flex__item u-1/1" *ngIf="gameStarted"></app-game-container>
 </div>

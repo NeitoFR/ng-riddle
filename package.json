@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0 --port 4200",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "api": "nodemon server/server.js"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +23,10 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
     "jquery": "^3.4.1",
+    "nodemon": "^1.19.0",
     "rxjs": "~6.3.3",
     "toastr": "^2.1.4",
     "tslib": "^1.9.0",

@@ -11,16 +11,24 @@ export class AppComponent implements OnInit  {
   title = 'ng-riddle';
   nickname: string;
   gameStarted: boolean;
+  currentGame: any[];
 
   constructor(private riddleService: RiddleService){
     this.gameStarted = false;
   }
   ngOnInit() {
-    this.riddleService.generateLevel().subscribe(res => {
-      console.log(res);
-    });
+
   }
   launchNewGame(values) {
-    console.log(values);
+    this.riddleService.generateLevel().subscribe(res => {
+      this.gameStarted = true;
+      this.currentGame = res;
+    });
+  }
+
+  stopGame(evt) {
+    console.log('stopping game');
+    this.gameStarted = false;
+    this.currentGame = [];
   }
 }
