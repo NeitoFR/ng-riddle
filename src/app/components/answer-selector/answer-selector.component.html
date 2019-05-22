@@ -1,3 +1,29 @@
-<p>
-  answer-selector works!
-</p>
+<mat-card class="form-card flex flex--col">
+  <mat-card-header class="flex__item mat-card-headers">
+    Pick the right answers
+  </mat-card-header>
+  <form
+    #answerForm="ngForm"
+    class="flex__item"
+    (ngSubmit)="submitAnswer(answerForm.value)"
+  >
+    <mat-radio-group class="flex flex--col" [(ngModel)]="selectedAnswer" name="selectedAnswer">
+      <mat-radio-button
+        class="flex__item"
+        *ngFor="let answer of _answers"
+        [value]="answer"
+      >
+        {{ answer.solution }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <button
+      mat-flat-button
+      color="primary"
+      class="btn flex__item--middle u-1/6"
+      type="submit"
+      [disabled]="answerForm.invalid"
+    >
+      Validate
+    </button>
+  </form>
+</mat-card>

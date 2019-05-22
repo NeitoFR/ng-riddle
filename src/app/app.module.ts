@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { GameContainerComponent } from './components/game-container/game-container.component';
@@ -41,7 +43,8 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
   providers: [RiddleService, ToastrService],
   bootstrap: [AppComponent]

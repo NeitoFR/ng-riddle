@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RiddleService } from './services/riddle.service';
+import { ILevel } from './interfaces/level.model';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,9 @@ export class AppComponent implements OnInit  {
   title = 'ng-riddle';
   nickname: string;
   gameStarted: boolean;
-  currentGame: any[];
+  currentGame: ILevel[];
 
-  constructor(private riddleService: RiddleService){
+  constructor(private riddleService: RiddleService) {
     this.gameStarted = false;
   }
   ngOnInit() {

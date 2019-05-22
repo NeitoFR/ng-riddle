@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { ToastrService } from './toastr.service';
 import { Observable, Subject } from 'rxjs';
+import { ILevel } from '../interfaces/level.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,10 @@ export class RiddleService {
     );
   }
 
-  generateLevel(): Observable<any[]> {
-    const subject = new Subject<any[]>();
+  generateLevel(): Observable<ILevel[]> {
+    const subject = new Subject<ILevel[]>();
     this.httpClient.post(environment.riddleApi + '/generateGame', {}).subscribe(
-      (res: any[]) => {
+      (res: ILevel[]) => {
         console.log('Got new game ', res);
         subject.next(res);
         subject.complete();

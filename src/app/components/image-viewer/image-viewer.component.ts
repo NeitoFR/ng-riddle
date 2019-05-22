@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RiddleService } from 'src/app/services/riddle.service';
 
 @Component({
   selector: 'app-image-viewer',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageViewerComponent implements OnInit {
 
-  constructor() { }
+// tslint:disable-next-line: variable-name
+  // private _goodId: number;
+
+  @Input()
+  set goodId(goodId: string) {
+    console.log('good Id changed', goodId);
+
+    // this.riddleService.getImage(this._goodId)
+  }
+
+  constructor(private riddleService: RiddleService) { }
 
   ngOnInit() {
   }

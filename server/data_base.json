@@ -1,34 +1,167 @@
 [
     {
         "id": "1",
-        "solution": "Forgive and Forget"
+        "solution": "FORGIVE AND FORGET"
     },
     {
         "id": "2",
-        "solution": "Lone Wolf"
+        "solution": "LONE WOLF"
     },
     {
         "id": "3",
-        "solution": "In the middle of nowhere"
+        "solution": "IN THE MIDDLE OF NOWHERE"
     },
     {
         "id": "4",
-        "solution": "Pie in the sky"
+        "solution": "PIE IN THE SKY"
     },
     {
         "id": "5",
-        "solution": "Have eyes bigger than one's stomach"
+        "solution": "HAVE EYES BIGGER THAN ONE'S STOMACH"
     },
     {
         "id": "6",
-        "solution": "Fortune Teller"
+        "solution": "FORTUNE TELLER"
     },
     {
         "id": "7",
-        "solution": "Stepfather"
+        "solution": "STEPFATHER"
     },
     {
         "id": "8",
-        "solution": "Bottomless pit"
+        "solution": "BOTTOMLESS PIT"
+    },
+    {
+        "id": "9",
+        "solution": "ONE FOOT IN THE GRAVE"
+    },
+    {
+        "id": "10",
+        "solution": "READ BETWEEN THE LINES"
+    },
+    {
+        "id": "11",
+        "solution": "AN EYE FOR AN EYE"
+    },
+    {
+        "id": "12",
+        "solution": "LOVE IS BLIND"
+    },
+    {
+        "id": "13",
+        "solution": "DASH SOMEONE'S HOPES"
+    },
+    {
+        "id": "14",
+        "solution": "THE BEST IS YET TO COMME"
+    },
+    {
+        "id": "15",
+        "solution": "HAVE TWO LEFT FEET"
+    },
+    {
+        "id": "16",
+        "solution": "CALCULATED RISK"
+    },
+    {
+        "id": "17",
+        "solution": "ONCE IN A LIFETIME"
+    },
+    {
+        "id": "18",
+        "solution": "SIX FEET UNDERGROUND"
+    },
+    {
+        "id": "19",
+        "solution": "BROKEN HEART"
+    },
+    {
+        "id": "20",
+        "solution": "THE DRINKS ARE ON THE HOUSE"
+    },
+    {
+        "id": "21",
+        "solution": "HISTORY REPEATS ITSELF"
+    },
+    {
+        "id": "22",
+        "solution": "FAMILY TREE"
+    },
+    {
+        "id": "23",
+        "solution": "WOMAN'S INTUITION"
+    },
+    {
+        "id": "24",
+        "solution": "UNFINISHED BUSINESS"
+    },
+    {
+        "id": "25",
+        "solution": "WATER UNDER THE BRIDGE"
+    },
+    {
+        "id": "26",
+        "solution": "TO HAVE STARS IN ONE'S EYES"
+    },
+    {
+        "id": "27",
+        "solution": "GO DOWN IN HISTORY"
+    },
+    {
+        "id": "28",
+        "solution": "GENERATION GAP"
+    },
+    {
+        "id": "29",
+        "solution": "ONE IN A MILLION"
+    },
+    {
+        "id": "30",
+        "solution": "WHERE THERE'S A WILL THERE'S A WAY"
+    },
+    {
+        "id": "31",
+        "solution": "LAST BUT NOT LEAST"
+    },
+    {
+        "id": "32",
+        "solution": "TOO FUNNY FOR WORDS"
+    },
+    {
+        "id": "33",
+        "solution": "THE BEGINNING OF THE END"
+    },
+    {
+        "id": "34",
+        "solution": "A LITTLE ROUGH AROUND THE EDGES"
+    },
+    {
+        "id": "35",
+        "solution": "LOOK ON THE BIRGHT SIDE"
+    },
+    {
+        "id": "36",
+        "solution": "BENDING THE RULES"
+    },
+    {
+        "id": "37",
+        "solution": "BREAK THE ICE"
+    },
+    {
+        "id": "38",
+        "solution": "HOME IS WHERE THE HEART IS"
+    },
+    {
+        "id": "39",
+        "solution": "FOREVER AND EVER"
+    },
+    {
+        "id": "40",
+        "solution": "MANY ARE CALLED BUT FEW ARE CHOSEN"
+    },
+    {
+        "id": "41",
+        "solution": "FALL FROM GRACE"
     }
+
 ]
