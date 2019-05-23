@@ -1,0 +1,11 @@
+FROM node:8.11.4
+
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+
+RUN apt-get update
+
+RUN apt-get install wget curl iputils-ping net-tools zsh apt-transport-https -y
+
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
+WORKDIR /app

@@ -50,7 +50,6 @@ app.all("*", (req, res, next) => {
       i++;
       levels.push(level);
       good_ids.push(level.good_answer);
-      console.log("rr");
     }
   }
   res.send(levels).end();

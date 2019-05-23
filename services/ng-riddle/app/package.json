@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --port 4200",
+    "start": "ng serve --host 0.0.0.0 --port 80",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "nodemon server/server.js"
+    "api": "nodemon server/server.js",
+    "postinstall": "bower install --allow-root",
+    "prod": "node server/server.js"
   },
   "private": true,
   "dependencies": {
