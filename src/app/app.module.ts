@@ -20,7 +20,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ToolbarComponent, StopGameDialogComponent } from './components/toolbar/toolbar.component';
 import { GameContainerComponent } from './components/game-container/game-container.component';
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 import { AnswerSelectorComponent } from './components/answer-selector/answer-selector.component';
@@ -30,7 +30,8 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     ToolbarComponent,
     GameContainerComponent,
     ImageViewerComponent,
-    AnswerSelectorComponent
+    AnswerSelectorComponent,
+    StopGameDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +50,7 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     MatStepperModule,
     MatButtonToggleModule
   ],
+  entryComponents: [StopGameDialogComponent],
   providers: [RiddleService, ToastrService],
   bootstrap: [AppComponent]
 })

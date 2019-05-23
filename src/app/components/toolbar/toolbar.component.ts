@@ -1,5 +1,20 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { MatDialogRef, MatDialog, MatDialogModule } from '@angular/material/dialog';
 
+
+@Component({
+  selector: 'app-stop-game-component',
+  templateUrl: './stop-game-component.html',
+})
+export class StopGameDialogComponent {
+
+  constructor(public stopGameDialRef: MatDialogRef<StopGameDialogComponent>) { }
+
+  onNoClick(): void {
+    this.stopGameDialRef.close();
+  }
+
+}
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -12,8 +27,19 @@ export class ToolbarComponent implements OnInit {
 
   @Input() gameStarted: boolean;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
+  openDialog() {
+    const stopGameDialRef = this.dialog.open(StopGameDialogComponent, {
+      width: '250px'
+    });
+
+    stopGameDialRef.afterClosed().subscribe((choice) => {
+      if (choice) {
+        this.stopGame.emit();
+      }
+    });
+  }
   ngOnInit() {
 
   }
