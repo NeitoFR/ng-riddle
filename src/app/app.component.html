@@ -1,5 +1,9 @@
 <div class="flex flex--col wrapper">
-  <app-toolbar class="flex__item" (stopGame)="stopGame($event)" [gameStarted]="gameStarted"></app-toolbar>
+  <app-toolbar
+    class="flex__item"
+    (stopGame)="stopGame($event)"
+    [gameStarted]="gameStarted"
+  ></app-toolbar>
 
   <mat-card class="flex__item flex flex--col" *ngIf="!gameStarted">
     <form
@@ -7,8 +11,21 @@
       class="flex__item flex flex--col"
       (ngSubmit)="launchNewGame(startGameForm.value)"
     >
+      <mat-button-toggle-group
+        class="flex__item--top"
+        #difficultySelector="matButtonToggleGroup"
+        name="selectedDifficulty"
+        aria-label="Difficulty Selector"
+        [value]="selectedDifficulty"
+        (change)="difficultyChanged(difficultySelector.value)"
+        style="margin: auto;"
+      >
+        <mat-button-toggle value="1">EASY</mat-button-toggle>
+        <mat-button-toggle value="2" checked>MEDIUM</mat-button-toggle>
+        <mat-button-toggle value="3">HARD</mat-button-toggle>
+      </mat-button-toggle-group>
       <mat-form-field
-        class="flex__item--middle input-nickname u-1/2 layout--center"
+        class="flex__item--middle input-nickname u-1/2 layout--center u-m+"
       >
         <input
           matInput
@@ -32,5 +49,10 @@
       </button>
     </form>
   </mat-card>
-  <app-game-container [currentGame]="currentGame" class="flex__item u-1/1" *ngIf="gameStarted" (endGameEvent)="endGame($event)"></app-game-container>
+  <app-game-container
+    [currentGame]="currentGame"
+    class="flex__item u-1/1"
+    *ngIf="gameStarted"
+    (endGameEvent)="endGame($event)"
+  ></app-game-container>
 </div>

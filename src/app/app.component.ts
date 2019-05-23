@@ -12,13 +12,44 @@ export class AppComponent implements OnInit {
   nickname: string;
   gameStarted: boolean;
   currentGame: ILevel[];
+  selectedDifficulty: string;
 
   constructor(private riddleService: RiddleService) {
     this.gameStarted = false;
   }
+  difficultyChanged(str: string) {
+    console.log('Difficulty changed', str);
+    this.selectedDifficulty = str;
+  }
+
 
   launchNewGame(values) {
-    this.riddleService.generateLevel().subscribe(res => {
+    let options = {};
+    switch (this.selectedDifficulty) {
+      case '1':
+        options = {
+          number_of_game: '5',
+          answer_by_game: '4'
+        };
+        break;
+      case '2':
+        options = {
+          number_of_game: '8',
+          answer_by_game: '5'
+        };
+        break;
+      case '3':
+        options = {
+          number_of_game: '11',
+          answer_by_game: '6'
+        };
+        break;
+      default:
+        break;
+    }
+    console.log('options :', options);
+
+    this.riddleService.generateLevel(options).subscribe(res => {
       this.gameStarted = true;
       this.currentGame = res;
     });
@@ -30,7 +61,7 @@ export class AppComponent implements OnInit {
     this.currentGame = [];
   }
   ngOnInit() {
-
+    this.selectedDifficulty = '2';
   }
   endGame(evt) {
     console.log('Game has ended');

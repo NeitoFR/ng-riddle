@@ -8,9 +8,13 @@ import { IAnswer } from 'src/app/interfaces/answer.model';
 })
 export class AnswerSelectorComponent implements OnInit {
 
-// tslint:disable-next-line: variable-name
+  // tslint:disable-next-line: variable-name
   public _answers: IAnswer[];
   selectedAnswer: IAnswer;
+  // tslint:disable-next-line: variable-name
+  @Input()
+// tslint:disable-next-line: variable-name
+  _i: number;
 
   @Output()
   answerSelected = new EventEmitter<IAnswer>();

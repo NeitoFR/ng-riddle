@@ -24,7 +24,7 @@
       [disabled]="answerForm.invalid"
       style="min-width: 150px;"
     >
-      Validate
+      {{ _i === _answers.length ? "Finish" : "Validate" }}
     </button>
   </form>
 </mat-card>

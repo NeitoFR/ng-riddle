@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -45,7 +46,8 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     HttpClientModule,
     MatDialogModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatButtonToggleModule
   ],
   providers: [RiddleService, ToastrService],
   bootstrap: [AppComponent]

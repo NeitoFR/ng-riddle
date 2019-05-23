@@ -17,11 +17,11 @@ export class RiddleService {
     );
   }
 
-  imageUrl: string
+  imageUrl: string;
 
-  generateLevel(): Observable<ILevel[]> {
+  generateLevel(options: object): Observable<ILevel[]> {
     const subject = new Subject<ILevel[]>();
-    this.httpClient.post(environment.riddleApi + '/generateGame', {}).subscribe(
+    this.httpClient.post(environment.riddleApi + '/generateGame', options).subscribe(
       (res: ILevel[]) => {
         console.log('Got new game ', res);
         subject.next(res);
