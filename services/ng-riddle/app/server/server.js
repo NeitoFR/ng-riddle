@@ -10,6 +10,7 @@ const fs = require("fs"),
 require("dotenv").config();
 app.use(cors());
 app.use(express.static(path.join(__dirname, "/..", "dist")));
+console.log(path.join(__dirname, "/..", "dist"));
 
 app.get("/", function(req, res) {
   res.sendFile("index.html", { root: "./dist" });
