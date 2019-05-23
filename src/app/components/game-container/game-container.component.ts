@@ -17,7 +17,7 @@ export class GameContainerComponent implements OnInit {
   // _currentLevel:
   currentLevel: ILevel;
 
-  score: any;
+  score: number;
 
   // tslint:disable-next-line: variable-name
   _i: number;
@@ -34,13 +34,20 @@ export class GameContainerComponent implements OnInit {
   _initGame() {
     console.log('Initializing Game, first level is : ', this._currentGame[0]);
     this._i = 0;
+    this.score = 0;
     this.currentLevel = this._currentGame[this._i];
     this._goodAnswer = this.currentLevel.good_answer;
     this._answers = this.currentLevel.answers;
   }
   answerSelected(answer: IAnswer) {
-    console.log('From game container, answer selected : ', answer.solution);
-    // Check Score TODO
+        // Check Score TODO
+    if (answer.id === this.currentLevel.good_answer) {
+      console.log('You get the good answer');
+      this.score++;
+    } else {
+      console.log('You got the wrong answer');
+    }
+
     this._setNextLevel(answer);
   }
 
@@ -62,10 +69,9 @@ export class GameContainerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   log() {
     console.log(this._currentGame);
-
   }
 }

@@ -1,5 +1,16 @@
 <div class="flex flex--col">
-  <div class="flex__item"></div>
+  <div class="flex__item u-p+ u-m+">
+<mat-card class="form-card flex flex--row">
+  <span class="flex__item">
+    Score : {{ score }} / {{ _currentGame.length }}
+  </span>
+  <span class="flex__item">
+    Wrong answer : {{ _i - score }}
+  </span>
+
+</mat-card>
+
+  </div>
   <div class="flex__item flex flex--row">
     <div class="flex__item">
       <app-image-viewer [goodId]="_goodAnswer"></app-image-viewer>

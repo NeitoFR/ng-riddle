@@ -17,6 +17,8 @@ export class RiddleService {
     );
   }
 
+  imageUrl: string
+
   generateLevel(): Observable<ILevel[]> {
     const subject = new Subject<ILevel[]>();
     this.httpClient.post(environment.riddleApi + '/generateGame', {}).subscribe(
@@ -32,5 +34,12 @@ export class RiddleService {
       }
     );
     if (subject) { return subject; }
+  }
+
+  getImage(id: string): Observable<Blob> {
+    this.imageUrl = environment.riddleApi + '/image/' + id + '.jpg';
+    console.log('Getting image from ', this.imageUrl);
+
+    return this.httpClient.get(this.imageUrl, { responseType: 'blob' });
   }
 }

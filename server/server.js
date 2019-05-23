@@ -10,7 +10,6 @@ require("dotenv").config({path: path.resolve("server/", ".env")});
 var app = express();
 
 // Middleware
-app.use("/image", express.static(path.join(__dirname, "img")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -24,14 +23,15 @@ app.all("*", (req, res, next) => {
   res.header(
     "Access-Control-Allow-Headers",
     "X-Requested-With, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Allow-Methods, Content-Type"
-  );
-  res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
-  res.header("Content-Type", "application/json");
-  console.log("Headers added to the request");
-  next();
-});
+    );
+    res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
+    res.header("Content-Type", "application/json");
+    console.log("Headers added to the request");
+    next();
+  });
+  app.use("/image", express.static(path.join(__dirname, "img")));https://prod.liveshare.vsengsaas.visualstudio.com/join?23379189DEE814F657AA61222705FE91C1C9
 
-app.post("/generateGame", (req, res) => {
+  app.post("/generateGame", (req, res) => {
   if (req.body) {
     console.log(req.body);
   }
