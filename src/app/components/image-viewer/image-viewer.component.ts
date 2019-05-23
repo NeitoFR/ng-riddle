@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RiddleService } from 'src/app/services/riddle.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import * as $ from 'jquery';
 @Component({
   selector: 'app-image-viewer',
   templateUrl: './image-viewer.component.html',
@@ -15,6 +16,8 @@ export class ImageViewerComponent implements OnInit {
   imageToShow: any;
 
   safeImageURL: any;
+
+  imageContainerClass: object;
 
   constructor(private riddleService: RiddleService, private sanitizer: DomSanitizer) { }
 
@@ -42,5 +45,16 @@ export class ImageViewerComponent implements OnInit {
       reader.readAsDataURL(image);
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+    // form-card flex flex--col .height500
+    $('body').width() < 850 ?
+      this.imageContainerClass = { 'flex__item': true, 'flex': true, 'flex--row': true, 'height500': false } :
+      this.imageContainerClass = { 'flex__item': true, 'flex': true, 'flex--col': true, 'height500': true };
+
+    $(window).resize((test) => {
+      $('body').width() < 850 ?
+        this.imageContainerClass = { 'flex__item': true, 'flex': true, 'flex--row': true, 'height500': false } :
+        this.imageContainerClass = { 'flex__item': true, 'flex': true, 'flex--col': true, 'height500': true };
+    });
+  }
 }

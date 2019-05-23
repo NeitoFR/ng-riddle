@@ -18,7 +18,7 @@ export class AnswerSelectorComponent implements OnInit {
   @Input()
   set answers(answers: IAnswer[]) {
     console.log('The answers changed', answers);
-
+    this.selectedAnswer = null;
     this._answers = answers;
   }
 

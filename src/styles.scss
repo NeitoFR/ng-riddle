@@ -14,7 +14,9 @@
 // Meta
 
 // Objects
-@import "px-layout-design/_objects.layout.scss";
+$inuit-enable-layout--middle : true;
+$inuit-enable-layout--center : true;
+@import 'px-layout-design/_objects.layout.scss';
 
 // Component
 // Your css goes in here

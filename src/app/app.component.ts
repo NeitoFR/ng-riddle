@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RiddleService } from './services/riddle.service';
 import { ILevel } from './interfaces/level.model';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit {
   title = 'ng-riddle';
   nickname: string;
   gameStarted: boolean;
@@ -17,9 +16,7 @@ export class AppComponent implements OnInit  {
   constructor(private riddleService: RiddleService) {
     this.gameStarted = false;
   }
-  ngOnInit() {
 
-  }
   launchNewGame(values) {
     this.riddleService.generateLevel().subscribe(res => {
       this.gameStarted = true;
@@ -32,7 +29,9 @@ export class AppComponent implements OnInit  {
     this.gameStarted = false;
     this.currentGame = [];
   }
+  ngOnInit() {
 
+  }
   endGame(evt) {
     console.log('Game has ended');
     this.gameStarted = false;

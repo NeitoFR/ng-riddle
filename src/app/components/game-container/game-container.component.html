@@ -1,22 +1,26 @@
 <div class="flex flex--col">
-  <div class="flex__item u-p+ u-m+">
-<mat-card class="form-card flex flex--row">
-  <span class="flex__item">
-    Score : {{ score }} / {{ _currentGame.length }}
-  </span>
-  <span class="flex__item">
-    Wrong answer : {{ _i - score }}
-  </span>
-
-</mat-card>
-
+  <mat-horizontal-stepper linear #stepper class="flex__item">
+    <mat-step *ngFor="let game of _currentGame; let i = index"> </mat-step>
+  </mat-horizontal-stepper>
+  <div class="flex__item u-p+">
+    <mat-card
+    class="form-card flex flex--row flex--col"
+    >
+      <span class="flex__item">
+        Score : {{ score }} / {{ _currentGame.length }}
+      </span>
+      <span class="flex__item"> Wrong answer : {{ _i - score }} </span>
+    </mat-card>
   </div>
-  <div class="flex__item flex flex--row">
+  <div [ngClass]="containerClass">
     <div class="flex__item">
       <app-image-viewer [goodId]="_goodAnswer"></app-image-viewer>
     </div>
     <div class="flex__item">
-      <app-answer-selector [answers]="_answers" (answerSelected)="answerSelected($event)"></app-answer-selector>
+      <app-answer-selector
+        [answers]="_answers"
+        (answerSelected)="answerSelected($event)"
+      ></app-answer-selector>
     </div>
   </div>
   <div class="flex__item"></div>

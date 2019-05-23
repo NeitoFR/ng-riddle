@@ -1,4 +1,4 @@
-<mat-card class="form-card flex flex--col">
+<mat-card class="form-card flex flex--col" style="height: 500px;">
   <mat-card-header class="flex__item mat-card-header u-m+">
     Pick the right answers
   </mat-card-header>
@@ -7,7 +7,7 @@
     class="flex__item flex flex--col"
     (ngSubmit)="submitAnswer(answerForm.value)"
   >
-    <mat-radio-group class="flex__item flex flex--col" [(ngModel)]="selectedAnswer" name="selectedAnswer">
+    <mat-radio-group class="flex__item flex flex--col" [(ngModel)]="selectedAnswer" name="selectedAnswer" required>
       <mat-radio-button
         class="flex__item u-m+"
         *ngFor="let answer of _answers"
@@ -22,6 +22,7 @@
       class="btn flex__item--middle u-1/6 u-m+"
       type="submit"
       [disabled]="answerForm.invalid"
+      style="min-width: 150px;"
     >
       Validate
     </button>

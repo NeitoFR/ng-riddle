@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ILevel } from 'src/app/interfaces/level.model';
 import { IAnswer } from 'src/app/interfaces/answer.model';
 
+import * as $ from 'jquery';
 @Component({
   selector: 'app-game-container',
   templateUrl: './game-container.component.html',
@@ -18,6 +19,8 @@ export class GameContainerComponent implements OnInit {
   currentLevel: ILevel;
 
   score: number;
+
+  containerClass: object;
 
   // tslint:disable-next-line: variable-name
   _i: number;
@@ -40,7 +43,7 @@ export class GameContainerComponent implements OnInit {
     this._answers = this.currentLevel.answers;
   }
   answerSelected(answer: IAnswer) {
-        // Check Score TODO
+    // Check Score TODO
     if (answer.id === this.currentLevel.good_answer) {
       console.log('You get the good answer');
       this.score++;
@@ -69,7 +72,19 @@ export class GameContainerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    // {'flex__item': true, 'flex': true, 'flex--row': false, 'flex--col': false}
+    $('body').width() < 850 ?
+      this.containerClass = { flex__item: true, flex: true, 'flex--row': false, 'flex--col': true } :
+      this.containerClass = { flex__item: true, flex: true, 'flex--row': true, 'flex--col': false };
+
+    $(window).resize((test) => {
+      $('body').width() < 850 ?
+        this.containerClass = { flex__item: true, flex: true, 'flex--row': false, 'flex--col': true } :
+        this.containerClass = { flex__item: true, flex: true, 'flex--row': true, 'flex--col': false };
+    });
+
+  }
 
   log() {
     console.log(this._currentGame);

@@ -16,13 +16,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { GameContainerComponent } from './components/game-container/game-container.component';
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 import { AnswerSelectorComponent } from './components/answer-selector/answer-selector.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,8 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     MatCardModule,
     HttpClientModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatStepperModule
   ],
   providers: [RiddleService, ToastrService],
   bootstrap: [AppComponent]
