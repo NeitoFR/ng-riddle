@@ -6,7 +6,7 @@ services:
     hostname: ng_riddle
     build:
       context: ./services/ng-riddle
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_dev
     volumes:
       - ./services/ng-riddle/app:/app
     working_dir: /app
@@ -19,7 +19,7 @@ services:
     hostname: riddle_api
     build:
       context: ./services/riddle-api
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_dev
     volumes:
       - ./services/riddle-api/app:/app
     working_dir: /app

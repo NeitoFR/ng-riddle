@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  riddleApi: "http://localhost:3000"
+  riddleApi: 'http://homenco.space:3306'
 };
 
 /*
