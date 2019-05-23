@@ -70,7 +70,12 @@ export class GameContainerComponent implements OnInit {
 
   _endGame() {
     console.log('Game has ended');
-    this.endGameEvent.emit();
+    this.endGameEvent.emit({
+      finalScore: this.score,
+      wrongAnswer: this._i - this.score + 1
+    });
+    this.score = 0;
+    this._i = 0;
   }
 
   constructor(private toastr: ToastrService) { }
@@ -87,9 +92,5 @@ export class GameContainerComponent implements OnInit {
         this.containerClass = { flex__item: true, flex: true, 'flex--row': true, 'flex--col': false };
     });
 
-  }
-
-  log() {
-    console.log(this._currentGame);
   }
 }

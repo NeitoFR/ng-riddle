@@ -1,6 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { RiddleService } from './services/riddle.service';
 import { ILevel } from './interfaces/level.model';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IScore } from './interfaces/score.model';
+
+@Component({
+  selector: 'app-score-component',
+  templateUrl: './components/dialog/score-component.html',
+})
+export class ScoreDialogComponent {
+
+  constructor(public scoreDialRef: MatDialogRef<ScoreDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: IScore) { }
+
+
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,7 +28,7 @@ export class AppComponent implements OnInit {
   currentGame: ILevel[];
   selectedDifficulty: string;
 
-  constructor(private riddleService: RiddleService) {
+  constructor(private riddleService: RiddleService, public dialog: MatDialog) {
     this.gameStarted = false;
   }
   difficultyChanged(str: string) {
@@ -64,8 +78,10 @@ export class AppComponent implements OnInit {
     this.selectedDifficulty = '2';
   }
   endGame(evt) {
-    console.log('Game has ended');
+    console.log('Game has ended', evt);
     this.gameStarted = false;
     this.currentGame = [];
+    this.dialog.open(ScoreDialogComponent, { width: '300px', data: evt });
+    this.selectedDifficulty = '2';
   }
 }

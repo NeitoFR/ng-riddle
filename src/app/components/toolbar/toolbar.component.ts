@@ -1,10 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { MatDialogRef, MatDialog, MatDialogModule } from '@angular/material/dialog';
-
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-stop-game-component',
-  templateUrl: './stop-game-component.html',
+  templateUrl: '../dialog/stop-game-component.html',
 })
 export class StopGameDialogComponent {
 

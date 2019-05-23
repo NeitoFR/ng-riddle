@@ -26,8 +26,6 @@ export class ImageViewerComponent implements OnInit {
     console.log('good Id changed', goodId);
     this._goodId = goodId;
     this.riddleService.getImage(this._goodId).subscribe(data => {
-      console.log("Data from image", data);
-
       this.createImageFromBlob(data);
     }, error => {
       console.log('Error loading image', error);

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrService } from './services/toastr.service';
 import { RiddleService } from './services/riddle.service';
 
-import { AppComponent } from './app.component';
+import { AppComponent, ScoreDialogComponent } from './app.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,7 +31,8 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     GameContainerComponent,
     ImageViewerComponent,
     AnswerSelectorComponent,
-    StopGameDialogComponent
+    StopGameDialogComponent,
+    ScoreDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,7 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     MatStepperModule,
     MatButtonToggleModule
   ],
-  entryComponents: [StopGameDialogComponent],
+  entryComponents: [StopGameDialogComponent, ScoreDialogComponent ],
   providers: [RiddleService, ToastrService],
   bootstrap: [AppComponent]
 })
