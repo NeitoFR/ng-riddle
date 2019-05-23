@@ -1,5 +1,5 @@
 <mat-card class="form-card flex flex--col" style="height: 500px;">
-  <mat-card-header class="flex__item mat-card-header u-m+">
+  <mat-card-header class="flex__item mat-card-header u-m+" style="font-size: 22px; font-weight: bold">
     Pick the right answers
   </mat-card-header>
   <form
@@ -7,13 +7,13 @@
     class="flex__item flex flex--col"
     (ngSubmit)="submitAnswer(answerForm.value)"
   >
-    <mat-radio-group class="flex__item flex flex--col" [(ngModel)]="selectedAnswer" name="selectedAnswer" required>
+    <mat-radio-group class="flex__item flex__item--middle flex flex--col" [(ngModel)]="selectedAnswer" name="selectedAnswer" required>
       <mat-radio-button
         class="flex__item u-m+"
         *ngFor="let answer of _answers"
         [value]="answer"
       >
-        {{ answer.solution }}
+        <span style="white-space: normal;">{{ answer.solution }}</span>
       </mat-radio-button>
     </mat-radio-group>
     <button
