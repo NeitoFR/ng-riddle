@@ -3,6 +3,7 @@ import { ILevel } from 'src/app/interfaces/level.model';
 import { IAnswer } from 'src/app/interfaces/answer.model';
 
 import * as $ from 'jquery';
+import { ToastrService } from 'src/app/services/toastr.service';
 @Component({
   selector: 'app-game-container',
   templateUrl: './game-container.component.html',
@@ -45,9 +46,11 @@ export class GameContainerComponent implements OnInit {
   answerSelected(answer: IAnswer) {
     // Check Score TODO
     if (answer.id === this.currentLevel.good_answer) {
+      this.toastr.success('Good Answer');
       console.log('You get the good answer');
       this.score++;
     } else {
+      this.toastr.error('Wrong Answer');
       console.log('You got the wrong answer');
     }
 
@@ -70,7 +73,7 @@ export class GameContainerComponent implements OnInit {
     this.endGameEvent.emit();
   }
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit() {
     // {'flex__item': true, 'flex': true, 'flex--row': false, 'flex--col': false}
