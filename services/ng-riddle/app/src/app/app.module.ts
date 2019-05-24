@@ -24,6 +24,7 @@ import { ToolbarComponent, StopGameDialogComponent } from './components/toolbar/
 import { GameContainerComponent } from './components/game-container/game-container.component';
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 import { AnswerSelectorComponent } from './components/answer-selector/answer-selector.component';
+import { StopWatchComponent } from './components/stop-watch/stop-watch.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { AnswerSelectorComponent } from './components/answer-selector/answer-sel
     ImageViewerComponent,
     AnswerSelectorComponent,
     StopGameDialogComponent,
-    ScoreDialogComponent
+    ScoreDialogComponent,
+    StopWatchComponent
   ],
   imports: [
     BrowserModule,

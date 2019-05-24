@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { ILevel } from 'src/app/interfaces/level.model';
 import { IAnswer } from 'src/app/interfaces/answer.model';
 
 import * as $ from 'jquery';
 import { ToastrService } from 'src/app/services/toastr.service';
+import { StopWatchComponent } from '../stop-watch/stop-watch.component';
 @Component({
   selector: 'app-game-container',
   templateUrl: './game-container.component.html',
@@ -26,7 +27,12 @@ export class GameContainerComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   _i: number;
 
+  @ViewChild('timer') timer: StopWatchComponent;
+
+
   @Output() endGameEvent = new EventEmitter();
+
+  @Input() nickname: string;
 
   @Input()
   set currentGame(currentGame: ILevel[]) {
@@ -42,6 +48,7 @@ export class GameContainerComponent implements OnInit {
     this.currentLevel = this._currentGame[this._i];
     this._goodAnswer = this.currentLevel.good_answer;
     this._answers = this.currentLevel.answers;
+    this.timer.startTimer();
   }
   answerSelected(answer: IAnswer) {
     // Check Score TODO
@@ -69,13 +76,15 @@ export class GameContainerComponent implements OnInit {
   }
 
   _endGame() {
-    console.log('Game has ended');
     this.endGameEvent.emit({
       finalScore: this.score,
-      wrongAnswer: this._i - this.score + 1
+      wrongAnswer: this._i - this.score + 1,
+      nickname: this.nickname,
+      finalTime: this.timer.getTime()
     });
     this.score = 0;
     this._i = 0;
+    this.timer.reset();
   }
 
   constructor(private toastr: ToastrService) { }

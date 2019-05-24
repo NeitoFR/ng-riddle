@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
 
 
   launchNewGame(values) {
+    this.nickname = values.nickname;
     let options = {};
     switch (this.selectedDifficulty) {
       case '1':

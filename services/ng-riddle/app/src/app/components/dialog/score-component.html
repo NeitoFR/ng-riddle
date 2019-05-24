@@ -1,6 +1,11 @@
 <h1 mat-dialog-title>Game finished</h1>
 <div mat-dialog-content class="flex flex--col">
   <div class="flex__item flex flex--row">
+    <span class="flex__item flex__item">Nickname : </span>
+    <span class="flex__item">{{ data.nickname }}</span>
+  </div>
+
+  <div class="flex__item flex flex--row">
     <span class="flex__item flex__item">Final score :</span>
     <span class="flex__item">{{ data.finalScore }}</span>
   </div>
@@ -8,6 +13,10 @@
   <div class="flex__item flex flex--row">
       <span class="flex__item flex__item">Wrong answers : </span>
       <span class="flex__item">{{ data.wrongAnswer }}</span>
+  </div>
+  <div class="flex__item flex flex--row">
+      <span class="flex__item flex__item">Final Time : </span>
+      <span class="flex__item">{{ data.finalTime }}</span>
   </div>
 </div>
 <div mat-dialog-actions>
