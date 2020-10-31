@@ -6,21 +6,24 @@ services:
     hostname: ng_riddle
     build:
       context: ./services/ng-riddle
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_dev
     volumes:
       - ./services/ng-riddle/app:/app
     working_dir: /app
     ports:
       - 80:80
+      - 4200:4200
+    stdin_open: true
 
   riddle_api:
     container_name: riddle_api
     hostname: riddle_api
     build:
       context: ./services/riddle-api
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_dev
     volumes:
       - ./services/riddle-api/app:/app
     working_dir: /app
     ports:
-      - 3306:3306
+      - 3000:3000
+    stdin_open: true
